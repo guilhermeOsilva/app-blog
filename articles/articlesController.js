@@ -1,5 +1,8 @@
 const express = require("express");
 const router = express.Router();
+const Category = require("../categories/Category");
+const Article = require("./articles/Article");
+const slugify = require("slugify");
 
 
 router.get("/articles", (req, res) => {
@@ -7,8 +10,17 @@ router.get("/articles", (req, res) => {
 })
 
 router.get("/admin/articles/new", (req, res) => {
-res.render("admin/articles/new");
+    Category.findAll().then((categories) => {
+        res.render("admin/articles/new", {
+            categories: categories
+        });
+    });
+
+
 })
 
+router.post("/articles/save", (req, res) => {
+
+})
 
 module.exports = router;
