@@ -9,10 +9,20 @@
         </div>
         <div class="card-body">
 
-            <form method="POST" action="/categories/save">
+            <form method="POST" action="/articles/save">
                 <input type="text" class="form-control" name="title" placeholder="Defina o titulo" />
                 <br>
                 <textarea name="body" class="form-control" placeholder="digite um artigo" id="article"></textarea>
+                <br>
+                <label for="">categoria</label>
+                <select name="category" id="" class="form-control">
+                    <% categories.forEach(category => {%>
+                        <option value="">-</option>
+                        <option value="<%= category.id %>"><%= category.title %></option>
+                        <% }) %>
+                </select>
+                <br>
+            
                 <br>
                 <button class="btn btn-success">Cadastrar</button>
             </form>
