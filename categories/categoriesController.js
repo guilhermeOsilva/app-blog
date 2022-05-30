@@ -69,7 +69,7 @@ router.get("/admin/categories/edit/:id", (req, res) => {
         } else {
             res.redirect("/admin/categories");
         }
-    }).catch(erro => {
+    }).catch(err => {
         res.redirect("/admin/categories");
     })
 })
